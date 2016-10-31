@@ -1,0 +1,35 @@
+{
+    "data": [
+        {
+            "assignee": null,
+            "category": null,
+            "createTime": "2016-10-31T15:01:37.834Z",
+            "delegationState": null,
+            "description": "Review task in progress",
+            "dueDate": null,
+            "executionId": "5",
+            "executionUrl": "http://localhost:8080/runtime/executions/5",
+            "formKey": null,
+            "id": "16",
+            "name": "Review Task",
+            "owner": null,
+            "parentTaskId": null,
+            "parentTaskUrl": null,
+            "priority": 50,
+            "processDefinitionId": "SubmissionAndReviewWorkflow:1:4",
+            "processDefinitionUrl": "http://localhost:8080/repository/process-definitions/SubmissionAndReviewWorkflow:1:4",
+            "processInstanceId": "5",
+            "processInstanceUrl": "http://localhost:8080/runtime/process-instances/5",
+            "suspended": false,
+            "taskDefinitionKey": "reviewTask",
+            "tenantId": "",
+            "url": "http://localhost:8080/runtime/tasks/16",
+            "variables": []
+        }
+    ],
+    "order": "asc",
+    "size": 1,
+    "sort": "id",
+    "start": 0,
+    "total": 1
+}
