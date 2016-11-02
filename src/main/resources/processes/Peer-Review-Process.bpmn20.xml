@@ -22,10 +22,10 @@
         <flowNodeRef>rejectTask</flowNodeRef>
         <flowNodeRef>approveTask</flowNodeRef>
         <flowNodeRef>isReadyForApproval</flowNodeRef>
-        <flowNodeRef>parallelgateway5</flowNodeRef>
         <flowNodeRef>parallelgateway6</flowNodeRef>
         <flowNodeRef>endevent4</flowNodeRef>
         <flowNodeRef>endevent5</flowNodeRef>
+        <flowNodeRef>CommentOrRejectTask</flowNodeRef>
       </lane>
     </laneSet>
     <startEvent id="startevent1" name="Start"></startEvent>
@@ -37,7 +37,7 @@
     </userTask>
     <exclusiveGateway id="isReadyForApproval" name="Approval Outcome"></exclusiveGateway>
     <sequenceFlow id="flow15" sourceRef="reviewTask" targetRef="isReadyForApproval"></sequenceFlow>
-    <sequenceFlow id="flow16" name="No" sourceRef="isReadyForApproval" targetRef="parallelgateway5">
+    <sequenceFlow id="flow16" name="No" sourceRef="isReadyForApproval" targetRef="CommentOrRejectTask">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isReadyForApproval== false}]]></conditionExpression>
     </sequenceFlow>
     <userTask id="approveTask" name="Approve Article">
@@ -71,7 +71,7 @@
     <sequenceFlow id="flow30" sourceRef="isReadyForReview" targetRef="alertTask">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${isReadyForReview == false}]]></conditionExpression>
     </sequenceFlow>
-    <parallelGateway id="parallelgateway5" name="Parallel Gateway"></parallelGateway>
+    <parallelGateway id="CommentOrRejectTask" name="Parallel Gateway"></parallelGateway>
     <parallelGateway id="parallelgateway6" name="Parallel Gateway"></parallelGateway>
     <sequenceFlow id="flow33" sourceRef="rejectTask" targetRef="parallelgateway6"></sequenceFlow>
     <sequenceFlow id="flow34" sourceRef="commentTask" targetRef="parallelgateway6"></sequenceFlow>
@@ -79,8 +79,8 @@
     <sequenceFlow id="flow35" sourceRef="parallelgateway6" targetRef="endevent4"></sequenceFlow>
     <endEvent id="endevent5" name="End"></endEvent>
     <sequenceFlow id="flow36" sourceRef="approveTask" targetRef="endevent5"></sequenceFlow>
-    <sequenceFlow id="flow37" sourceRef="parallelgateway5" targetRef="commentTask"></sequenceFlow>
-    <sequenceFlow id="flow38" sourceRef="parallelgateway5" targetRef="rejectTask"></sequenceFlow>
+    <sequenceFlow id="flow37" sourceRef="CommentOrRejectTask" targetRef="commentTask"></sequenceFlow>
+    <sequenceFlow id="flow38" sourceRef="CommentOrRejectTask" targetRef="rejectTask"></sequenceFlow>
   </process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_Collaboration">
     <bpmndi:BPMNPlane bpmnElement="Collaboration" id="BPMNPlane_Collaboration">
@@ -126,7 +126,7 @@
       <bpmndi:BPMNShape bpmnElement="alertTask" id="BPMNShape_alertTask">
         <omgdc:Bounds height="55.0" width="105.0" x="860.0" y="283.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="parallelgateway5" id="BPMNShape_parallelgateway5">
+      <bpmndi:BPMNShape bpmnElement="CommentOrRejectTask" id="BPMNShape_CommentOrRejectTask">
         <omgdc:Bounds height="40.0" width="40.0" x="770.0" y="472.0"></omgdc:Bounds>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape bpmnElement="parallelgateway6" id="BPMNShape_parallelgateway6">

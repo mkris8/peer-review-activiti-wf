@@ -1,5 +1,7 @@
 package org.activiti;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,8 +18,20 @@ public class Article {
     private String authorEmail;
 
     private String articleVersionNumber;
+    
+    private String workflowStep;
 
-    public Article() {
+    private Date date;
+    
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Article() {
 
     }
 
@@ -25,6 +39,7 @@ public class Article {
         this.articleName = articleName;
         this.authorEmail = authorEmail;
         this.articleVersionNumber = articleVersionNumber;
+        
     }
 
     public Long getId() {
@@ -58,4 +73,12 @@ public class Article {
     public void setPhoneNumber(String articleVersionNumber) {
         this.articleVersionNumber = articleVersionNumber;
     }
+    public String getWorkflowStep() {
+		return workflowStep;
+	}
+
+	public void setWorkflowStep(String workflowStep) {
+		this.workflowStep = workflowStep;
+	}
+
 }

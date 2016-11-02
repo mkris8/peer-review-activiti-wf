@@ -9,6 +9,7 @@ import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.identity.Group;
 import org.activiti.engine.identity.User;
+import org.h2.tools.Server;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -65,4 +66,18 @@ public class MyApplication {
         };
     }
 
+    // allows h2 console to be started on different port. Else blank screen will appear, if 8080 is used by a different process.
+    
+    @Bean
+    org.h2.tools.Server h2Server() {
+        Server server = new Server();
+        try {
+            server.runTool("-tcp");
+            server.runTool("-tcpAllowOthers");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return server;
+
+    }
 }
